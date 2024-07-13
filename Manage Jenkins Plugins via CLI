@@ -1,0 +1,44 @@
+# KodeKloude "Jenkins" course Labs:
+
+--- List Jenkins Plugins:-
+# java -jar jenkins-cli.jar -s http://localhost:8085 -auth 'admin:Adm!n321' list-plugins
+
+--- Verify Jenkins CLI identifies the user
+#java -jar jenkins-cli.jar -s http://localhost:8080/ who-am-i
+
+#java -jar jenkins-cli.jar -s http://localhost:8080/ -auth Username:password who-am-i
+
+#Install the plugin from Jenkins CLI
+java -jar jenkins-cli.jar -s http://localhost:8080/ -auth username:password install-plugin serenity:1.4
+
+A) Installing "Bitbucket Branch Source"
+
+#java -jar jenkins-cli.jar -s http://localhost:8085 -auth 'admin:Adm!n321' install-plugin cloudbees-bitbucket-branch-source
+
+- Result:
+Installing cloudbees-bitbucket-branch-source from update center
+
+
+B) Upgrade the cloud-stats plugin to the latest available version using the Jenkins CLI, then may need to restart jenkins service:-
+
+# java -jar jenkins-cli.jar -s http://localhost:8085 -auth 'admin:Adm!n321' install-plugin cloud-stats
+
+- Restart Jenkins service after install / upgrade plugins:
+#sudo service jenkins restart
+
+
+--- Restart the Jenkins from Jenkins CLI
+
+#java -jar jenkins-cli.jar -s http://localhost:8080/ -auth username:password safe-restart
+
+
+--- Restart jenkins service:
+# service jenkins restart
+
+
+- Disable the github plugin using the Jenkins CLI:-
+
+# java -jar jenkins-cli.jar -s http://localhost:8085 -auth 'admin:Adm!n321' disable-plugin github
+
+Result:
+Disabling 'github': DISABLED (Plugin 'github' disabled)
